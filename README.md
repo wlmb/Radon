@@ -10,6 +10,9 @@ https://doi.org/10.1073/pnas.0609228103.
 
 For use see the example at testradon.pl.
 
+The plots in 'reconstructed.pdf' were obtained through the command
+`$ ./testradon.pl --image=test-pgm --iterations=5`
+
 This software is copyright (c) 2020 by W. Luis Mochan.
 
 This is free software; you can redistribute it and/or modify it under
