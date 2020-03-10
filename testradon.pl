@@ -34,8 +34,8 @@ my $w1=gpwin('qt', size=>[12,9]);
 $w1->multiplot(Layout=>[2,2]);
 $w1->plot({title=>'Original'}, with=>'image',$im);
 $w1->plot({title=>'Transform'}, with=>'image',$rall);
-$w1->plot({title=>'Reconstructed: 0 its'}, with=>'image',$im0);
-$w1->plot({title=>"Reconstructed: $iterations its"}, with=>'image',$imN);
+$w1->plot({title=>'Reconstructed: 0 iterations'}, with=>'image',$im0);
+$w1->plot({title=>"Reconstructed: $iterations iterations"}, with=>'image',$imN);
 $w1->multi_end;
 
 sub usage {
