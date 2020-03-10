@@ -13,9 +13,17 @@ For use see the example at testradon.pl.
 The plots in 'reconstructed.pdf' were obtained through the command
 `$ ./testradon.pl --image=test-pgm --iterations=5`
 
+## Author
+
+W. Luis Mochán mochan@fis.unam.mx
+
+## Acknowledgment
+
+This work was partially supported by DGAPA-UNAM under grant IN111119.
+
+## Licence
+
 This software is copyright (c) 2020 by W. Luis Mochan.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
-
-This work was partially supported by DGAPA-UNAM under grant IN111119.
