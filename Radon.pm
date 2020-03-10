@@ -12,7 +12,7 @@ use PDL::NiceSlice;
 use PDL::Image2D;
 
 
-sub radonD { #discreet radon transform
+sub radonD { #discrete radon transform
     my $image=shift;
     die "Image should be square" unless $image->dim(0)==$image->dim(1);
     my $nn=$image->dim(0);
@@ -96,7 +96,7 @@ sub backpiece { #backproject one quadrant 0:45, 45_90, -90_-45, or -45:0
     return $a->(:,$N:-1);
 }
 
-sub radonI { #inverse of discreet radon transform
+sub radonI { #inverse of discrete radon transform
     my ($a, $b, $c, $d, $iterations)=@_;
     my $N=$a->dim(0);
     die "Dimension should be square" if $N&$N>>1;

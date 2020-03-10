@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Perform and display a direct and inverse discreet Radon transform
+# Perform and display a direct and inverse discrete Radon transform
 #
 use warnings;
 use strict;
@@ -44,7 +44,7 @@ sub usage {
 Usage:
    ./testradon.pl --image=path --iterations=n
 
-Tests the package Radon by calculating the discreet radon transform of
+Tests the package Radon by calculating the discrete radon transform of
 the image at path and the inverse transform using n refinement
 iterations. The image should be monochrome, square and its size should
 be a power of 2.
