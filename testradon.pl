@@ -3,7 +3,7 @@
 #
 use warnings;
 use strict;
-use lib "."; #Until installed somewhere
+use lib "."; # Adjust as needed to pick up Radon.pm if uninstalled
 use feature qw(say);
 use IO::Prompter;
 use PDL;
