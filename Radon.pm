@@ -147,3 +147,18 @@ sub radonA { #assemble the four pieces in one for display
     $res($N3:$N4-1,:).=$b(-1:0,-1:0);
     return $res;
 }
+
+sub radonABCD { #disassemble one radon transform into its four pieces,
+		#one for each quadrant. This allows filtering the
+		#radon transform in one piece before splitting it and
+		#producing an image
+    my $radon=shift;
+    my ($N4,$N2)=$radon->dims;
+    my $N1=$N2/2;
+    my $N3=3*$N1;
+    my $c=$radon(0:$N1-1,-1:0);
+    my $d=$radon($N2-1:$N1,:);
+    my $a=$radon($N2:$N3-1,:);
+    my $b=$radon($N4-1:$N3,-1:0);
+    return ($a, $b, $c, $d);
+}

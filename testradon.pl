@@ -5,6 +5,7 @@ use warnings;
 use strict;
 use lib "."; # Adjust as needed to pick up Radon.pm if uninstalled
 use feature qw(say);
+use List::Util;
 use IO::Prompter;
 use PDL;
 use PDL::NiceSlice;
@@ -26,8 +27,10 @@ my $N=$im->dim(0);
 usage("Image should be square") unless $im->dim(1)==$N;
 usage("Size should be power of 2") if $N&($N-1);
 my ($N0,$N1, $N2, $N3, $N4)=map {$_*$N} (0..4);
-my ($a, $b, $c, $d)=Radon::radonD($im);
-my $rall=Radon::radonA($a, $b, $c, $d);
+my ($a, $b, $c, $d)=Radon::radonD($im); #transform an image
+my $rall=Radon::radonA($a, $b, $c, $d); #join all the parts of the transform
+my @pieces=Radon::radonABCD($rall); #disassemble
+die "radonA and radonABCD not inverses" unless all(pdl(@pieces)==pdl($a, $b, $c, $d));
 my $im0=Radon::radonI($a, $b, $c, $d, 0);
 my $imN=Radon::radonI($a, $b, $c, $d, $iterations);
 my $w1=gpwin('qt', size=>[12,9]);
