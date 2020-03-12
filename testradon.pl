@@ -28,9 +28,9 @@ usage("Image should be square") unless $im->dim(1)==$N;
 usage("Size should be power of 2") if $N&($N-1);
 my ($N0,$N1, $N2, $N3, $N4)=map {$_*$N} (0..4);
 my ($a, $b, $c, $d)=Radon::radonD($im); #transform an image
-my $rall=Radon::radonA($a, $b, $c, $d); #join all the parts of the transform
-my @pieces=Radon::radonABCD($rall); #disassemble
-die "radonA and radonABCD not inverses" unless all(pdl(@pieces)==pdl($a, $b, $c, $d));
+my $rall=Radon::radonJoin($a, $b, $c, $d); #join all the parts of the transform
+my @pieces=Radon::radonSeparate($rall); #disassemble
+die "radonJoin and radonSeparate not inverses" unless all(pdl(@pieces)==pdl($a, $b, $c, $d));
 my $im0=Radon::radonI($a, $b, $c, $d, 0);
 my $imN=Radon::radonI($a, $b, $c, $d, $iterations);
 my $w1=gpwin('qt', size=>[12,9]);
@@ -41,7 +41,7 @@ $w1->plot({title=>'Reconstructed: 0 iterations', clut=>'gray',
 	   square=>1}, with=>'image',$im0);
 $w1->plot({title=>"Reconstructed: $iterations iterations",
 	   clut=>'gray', square=>1}, with=>'image',$imN);
-$w1->multi_end;
+$w1->end_multi;
 
 sub usage {
     say $_[0];

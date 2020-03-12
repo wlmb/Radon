@@ -132,7 +132,7 @@ sub recursive_inverse { #recursively invert radon transformation through all sca
     return $f;
 }
 
-sub radonA { #assemble the four pieces in one for display
+sub radonJoin { #assemble the four pieces in one for display
     #Note that height increases with second index but has different
     #meaning in different quadrants. Rise goes towards the right,
     #left, right left according to quadrant.
@@ -148,7 +148,7 @@ sub radonA { #assemble the four pieces in one for display
     return $res;
 }
 
-sub radonABCD { #disassemble one radon transform into its four pieces,
+sub radonSeparate { #disassemble one radon transform into its four pieces,
 		#one for each quadrant. This allows filtering the
 		#radon transform in one piece before splitting it and
 		#producing an image
