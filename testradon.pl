@@ -32,10 +32,12 @@ my $im0=Radon::radonI($a, $b, $c, $d, 0);
 my $imN=Radon::radonI($a, $b, $c, $d, $iterations);
 my $w1=gpwin('qt', size=>[12,9]);
 $w1->multiplot(Layout=>[2,2]);
-$w1->plot({title=>'Original'}, with=>'image',$im);
-$w1->plot({title=>'Transform'}, with=>'image',$rall);
-$w1->plot({title=>'Reconstructed: 0 iterations'}, with=>'image',$im0);
-$w1->plot({title=>"Reconstructed: $iterations iterations"}, with=>'image',$imN);
+$w1->plot({title=>'Original',clut=>'gray', square=>1}, with=>'image',$im);
+$w1->plot({title=>'Transform', clut=>'gray', square=>1}, with=>'image',$rall);
+$w1->plot({title=>'Reconstructed: 0 iterations', clut=>'gray',
+	   square=>1}, with=>'image',$im0);
+$w1->plot({title=>"Reconstructed: $iterations iterations",
+	   clut=>'gray', square=>1}, with=>'image',$imN);
 $w1->multi_end;
 
 sub usage {
